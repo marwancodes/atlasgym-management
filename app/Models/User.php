@@ -57,4 +57,9 @@ class User extends Authenticatable
             'deleted_at' => 'datetime'
         ];
     }
+
+    public function members()
+    {
+        return $this->hasMany(Member::class, 'userId', 'id');
+    }
 }

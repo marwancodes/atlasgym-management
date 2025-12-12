@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('role', ['admin', 'company-owner', 'job-seeker'])->default('admin');
+            $table->enum('role', ['admin', 'staff'])->default('admin');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
@@ -36,6 +36,10 @@ return new class extends Migration
             $table->text('user_agent')->nullable();
             $table->longText('payload');
             $table->integer('last_activity')->index();
+
+            // Add user relation
+            $table->uuid('userId')->constrained('users')->nullable();
+            $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
