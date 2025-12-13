@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('role', ['admin', 'staff'])->default('admin');
+            $table->enum('role', ['admin', 'staff'])->default('staff');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
@@ -31,15 +31,14 @@ return new class extends Migration
 
         Schema::create('sessions', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->foreignId('user_id')->nullable()->index();
             $table->string('ip_address', 45)->nullable();
             $table->text('user_agent')->nullable();
             $table->longText('payload');
             $table->integer('last_activity')->index();
 
             // Add user relation
-            $table->uuid('userId')->constrained('users')->nullable();
-            $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
+            $table->uuid('user_id')->constrained('users')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
