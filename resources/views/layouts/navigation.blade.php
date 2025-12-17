@@ -1,9 +1,9 @@
-<nav class="w-[250px] h-screen bg-white border-r border-gray-200">
+<nav class="w-[250px] h-screen bg-[#222222] border-r border-zinc-700">
     {{-- Application Logo --}}
-    <div class="flex items-center px-6 py-6 border-b border-gray-200">
+    <div class="flex items-center px-6 py-6 border-b border-zinc-700">
         <a href="{{ route('dashboard') }}" class="flex items-center gap-2 text-2xl font-bold">
             <x-application-logo class="w-auto h-6 text-gray-800 fill-current" />
-            <span class="text-lg font-semibold text-gray-800">ATLAS GYM</span>
+            <span class="text-lg font-semibold text-white">ATLAS GYM</span>
         </a>
     </div>
 

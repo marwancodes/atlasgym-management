@@ -1,9 +1,9 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex items-center justify-between">
-            <h2 class="text-2xl font-bold text-gray-900">Member Details</h2>
+            <h2 class="text-2xl font-bold text-white">Member Details</h2>
             <a href="{{ route('members.index') }}"
-               class="text-sm font-medium text-gray-600 transition hover:text-indigo-600">
+               class="text-sm font-medium text-white transition hover:text-blue-600">
                 ← Back to Members
             </a>
         </div>
@@ -12,10 +12,10 @@
     <div class="max-w-6xl p-6 mx-auto space-y-8">
 
         <!-- Member Overview -->
-        <div class="p-6 bg-white border border-gray-200 shadow-md rounded-xl">
+        <div class="p-6 border border-zinc-700 shadow-md bg-[#222222] rounded-xl">
             <div class="flex items-start justify-between">
                 <div>
-                    <h3 class="text-xl font-semibold text-gray-900">{{ $member->name }}</h3>
+                    <h3 class="text-xl font-semibold text-white">{{ $member->name }}</h3>
                     <p class="text-sm text-gray-500">{{ $member->email }}</p>
                 </div>
 
@@ -31,34 +31,34 @@
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
 
             <!-- Personal Info -->
-            <div class="p-6 bg-white border border-gray-200 shadow-md rounded-xl">
-                <h4 class="mb-4 text-lg font-semibold text-gray-800">Personal Information</h4>
+            <div class="p-6 bg-[#222222] border border-zinc-700 shadow-md rounded-xl">
+                <h4 class="mb-4 text-lg font-semibold text-white">Personal Information</h4>
 
                 <dl class="space-y-4 text-sm">
                     <div class="flex justify-between">
                         <dt class="text-gray-500">Phone</dt>
-                        <dd class="font-medium text-gray-900">{{ $member->phone ?? '—' }}</dd>
+                        <dd class="font-medium text-white">{{ $member->phone ?? '—' }}</dd>
                     </div>
 
                     <div class="flex justify-between">
                         <dt class="text-gray-500">Address</dt>
-                        <dd class="max-w-xs font-medium text-right text-gray-900">{{ $member->address ?? '—' }}</dd>
+                        <dd class="max-w-xs font-medium text-right text-white">{{ $member->address ?? '—' }}</dd>
                     </div>
 
                     <div class="flex justify-between">
                         <dt class="text-gray-500">Join Date</dt>
-                        <dd class="font-medium text-gray-900">{{ optional($member->created_at)->format('d M Y') ?? '—' }}</dd>
+                        <dd class="font-medium text-white">{{ optional($member->created_at)->format('d M Y') ?? '—' }}</dd>
                     </div>
                 </dl>
             </div>
 
             <!-- Trainer Info -->
-            <div class="p-6 bg-white border border-gray-200 shadow-md rounded-xl">
-                <h4 class="mb-4 text-lg font-semibold text-gray-800">Trainer</h4>
+            <div class="p-6 bg-[#222222] border border-zinc-700 shadow-md rounded-xl">
+                <h4 class="mb-4 text-lg font-semibold text-white">Trainer</h4>
 
                 @if ($member->trainer)
                     <div class="space-y-2 text-sm">
-                        <p class="font-medium text-gray-900">{{ $member->trainer->name }}</p>
+                        <p class="font-medium text-white">{{ $member->trainer->name }}</p>
                         <p class="text-gray-500">{{ $member->trainer->email }}</p>
                         <p class="text-gray-500">Specialization: {{ $member->trainer->specialisation ?? '—' }}</p>
                     </div>
@@ -69,8 +69,8 @@
         </div>
 
         <!-- Subscriptions -->
-        <div class="p-6 bg-white border border-gray-200 shadow-md rounded-xl">
-            <h4 class="mb-4 text-lg font-semibold text-gray-800">Subscriptions</h4>
+        <div class="p-6 bg-[#222222] border border-zinc-700 shadow-md rounded-xl">
+            <h4 class="mb-4 text-lg font-semibold text-white">Subscriptions</h4>
 
             @if ($member->subscriptions->count())
                 <div class="overflow-x-auto">
@@ -85,10 +85,10 @@
                         </thead>
                         <tbody class="divide-y divide-gray-200">
                             @foreach ($member->subscriptions as $subscription)
-                                <tr class="transition hover:bg-gray-50">
-                                    <td class="py-2 font-medium">{{ $subscription->plan->name }}</td>
-                                    <td class="py-2">{{ $subscription->start_date->format('d M Y') }}</td>
-                                    <td class="py-2">{{ $subscription->end_date->format('d M Y') }}</td>
+                                <tr class="transition hover:bg-zinc-700">
+                                    <td class="py-2 font-medium text-white">{{ $subscription->plan->name }}</td>
+                                    <td class="py-2 text-white">{{ $subscription->start_date->format('d M Y') }}</td>
+                                    <td class="py-2 text-white">{{ $subscription->end_date->format('d M Y') }}</td>
                                     <td class="py-2">
                                         <span
                                             class="px-2 py-1 rounded-full text-xs font-medium
@@ -109,7 +109,7 @@
         <!-- Actions -->
         <div class="flex flex-wrap justify-end gap-3">
             <a href="{{ route('members.edit', $member->id) }}"
-               class="px-5 py-2 text-sm font-medium text-white transition bg-indigo-600 rounded-lg hover:bg-indigo-700">
+               class="px-5 py-2 text-sm font-medium text-white transition bg-blue-600 rounded-lg hover:bg-blue-700">
                 Edit Member
             </a>
 

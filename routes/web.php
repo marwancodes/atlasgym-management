@@ -10,6 +10,8 @@ Route::get('/', function () {
     return view('dashboard.index');
 })->middleware(middleware: ['auth', 'verified'])->name('dashboard');
 
+Route::middleware(['auth', 'role:admin,staff'])->group(function () {
+});
 
 Route::get('/members', [MemberController::class, 'index'])->name('members.index');
 Route::get('/members/create', [MemberController::class, 'create'])->name('members.create');
