@@ -18,7 +18,7 @@
         <div class="flex">
             @include('layouts.navigation')
 
-            <div class="flex-1 min-h-screen bg-[#191919]">
+            <div class="flex-1 min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black">
                 <!-- Page Heading -->
                 @isset($header)
                     <header class="bg-[#222222] shadow">

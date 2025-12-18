@@ -94,7 +94,7 @@
                             @foreach($plans as $plan)
                                 <option value="{{ $plan->id }}"
                                     @selected($subscription->planId === $plan->id)>
-                                    {{ $plan->name }}
+                                    {{ $plan->name }} ({{ $plan->duration_in_day }} days)
                                 </option>
                             @endforeach
                         </select>
@@ -165,14 +165,20 @@
 
             <!-- ================= Actions ================= -->
             <div class="flex justify-end gap-3">
-                <a href="{{ route('members.index') }}"
-                   class="px-5 py-2 text-sm font-medium transition border rounded-lg text-zinc-900 border-zinc-700 hover:bg-zinc-600 bg-zinc-700">
+                <x-primary-button href="{{ route('members.index') }}"
+                   class="px-5 py-2 text-sm font-semibold
+                               bg-gray-700/80 backdrop-blur hover:bg-gray-700/60
+                               shadow-[0_8px_30px_rgba(99,102,241,0.4)]
+                               transition-all duration-200">
                     Cancel
-                </a>
+                </x-primary-button>
 
-                <button type="submit"
-                        class="px-5 py-2 text-sm font-medium text-white transition bg-blue-600 rounded-lg hover:bg-blue-700"> Update Member
-                </button>
+                <x-primary-button type="submit"
+                        class="px-5 py-2 text-sm font-semibold
+                               bg-indigo-600 hover:bg-indigo-700
+                               shadow-[0_8px_30px_rgba(99,102,241,0.4)]
+                               transition-all duration-200"> Update Member
+                </x-primary-button>
             </div>
         </form>
     </div>

@@ -28,7 +28,7 @@ class MemberController extends Controller
         }
 
         $members = $query
-            ->paginate(5)
+            ->paginate(7)
             ->onEachSide(1);
 
         return view('member.index', compact('members'));
@@ -83,7 +83,7 @@ class MemberController extends Controller
                 'planId'     => $plan->id,
                 'start_date' => $request->subscription_start_date,
                 'end_date'   => Carbon::parse($request->subscription_start_date)
-                                    ->addDays($plan->duration_in_days),
+                                    ->addDays($plan->duration_in_day),
                 'status'     => $request->subscription_status,
             ]);
 

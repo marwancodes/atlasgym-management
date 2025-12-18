@@ -88,13 +88,15 @@
                             class="w-full px-4 py-2 transition border rounded-lg shadow-sm text-zinc-500 border-zinc-700 focus:ring-indigo-500 focus:border-indigo-500 bg-zinc-800">
                         <option value="">— Select Plan —</option>
                         @foreach($plans as $plan)
-                            <option value="{{ $plan->id }}">{{ $plan->name }} ({{ $plan->duration_in_day }} hours)</option>
+                            <option value="{{ $plan->id }}">{{ $plan->name }} ({{ $plan->duration_in_day }} days)</option>
                         @endforeach
                     </select>
 
+
+
                     <input type="date" name="subscription_start_date" required
                            class="w-full px-4 py-2 transition border rounded-lg shadow-sm text-zinc-500 border-zinc-700 focus:ring-indigo-500 focus:border-indigo-500 bg-zinc-800" />
-
+      
                     <select name="subscription_status" required
                             class="w-full px-4 py-2 transition border rounded-lg shadow-sm text-zinc-500 border-zinc-700 focus:ring-indigo-500 focus:border-indigo-500 bg-zinc-800">
                         <option value="active">Active</option>
@@ -133,15 +135,21 @@
 
             <!-- ================= Actions ================= -->
             <div class="flex flex-wrap justify-end gap-3">
-                <a href="{{ route('members.index') }}"
-                   class="px-5 py-2 text-sm font-medium transition border rounded-lg text-zinc-900 border-zinc-700 hover:bg-zinc-600 bg-zinc-700">
+                <x-primary-button href="{{ route('members.index') }}"
+                   class="px-5 py-2 text-sm font-semibold
+                               bg-gray-700/80 backdrop-blur hover:bg-gray-700/60
+                               shadow-[0_8px_30px_rgba(99,102,241,0.4)]
+                               transition-all duration-200">
                     Cancel
-                </a>
+                </x-primary-button>
 
-                <button type="submit"
-                        class="px-5 py-2 text-sm font-medium text-white transition bg-blue-600 rounded-lg hover:bg-blue-700">
+                <x-primary-button type="submit"
+                        class="px-5 py-2 text-sm font-semibold
+                               bg-indigo-600 hover:bg-indigo-700
+                               shadow-[0_8px_30px_rgba(99,102,241,0.4)]
+                               transition-all duration-200">
                     Create Member
-                </button>
+                </x-primary-button>
             </div>
         </form>
     </div>

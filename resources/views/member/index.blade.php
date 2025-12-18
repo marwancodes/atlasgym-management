@@ -37,10 +37,10 @@
                 <form action="{{ route('members.index') }}" method="GET" class="flex w-full md:w-auto">
                     <input type="text" name="search" placeholder="Search members..."
                            value="{{ request('search') }}"
-                           class="w-full px-4 py-2 border border-gray-300 shadow-sm text-neutral-500 rounded-l-xl">
+                           class="w-full px-4 py-2 text-white shadow-sm rounded-l-xl focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-neutral-800" />
     
                     <button type="submit"
-                            class="px-4 py-2 text-white bg-neutral-600 rounded-r-xl hover:bg-neutral-700">
+                            class="px-4 py-2 text-white bg-indigo-600 shadow-sm rounded-r-xl hover:bg-indigo-700">
                         Search
                     </button>
                 </form>
@@ -81,7 +81,7 @@
 
                 <tbody class="divide-y divide-neutral-700">
                     @forelse ($members as $member)
-                        <tr class="hover:bg-neutral-600/20">
+                        <tr class="hover:bg-indigo-600/20">
 
                             {{-- Member --}}
                             <td class="px-6 py-4">
@@ -92,7 +92,7 @@
                                     <div class="text-xs text-gray-500">{{ $member->email }}</div>
                                 @else
                                     <a href="{{ route('members.show', $member->id) }}">
-                                        <div class="font-medium text-white hover:text-blue-500">
+                                        <div class="font-medium text-white hover:text-indigo-500">
                                             {{ $member->name }}
                                         </div>
                                         <div class="text-xs text-gray-500">{{ $member->email }}</div>
@@ -132,7 +132,7 @@
                                 @else
                                     {{-- Edit --}}
                                     <a href="{{ route('members.edit', $member->id) }}"
-                                       class="font-medium text-blue-500 hover:underline">
+                                       class="font-medium text-indigo-600 hover:underline">
                                         Edit
                                     </a>
 

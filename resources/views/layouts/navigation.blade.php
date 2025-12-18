@@ -17,7 +17,7 @@
          Members
       </x-nav-link>
 
-      <x-nav-link href="#">
+      <x-nav-link href="{{ route('subscriptions.index') }}">
          Subscriptions
       </x-nav-link>
 
