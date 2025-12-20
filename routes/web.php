@@ -3,6 +3,7 @@
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\SubscriptionPlanController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -26,6 +27,10 @@ Route::middleware(['auth'])->group(function () {
 
 
 Route::get('/subscriptions', [SubscriptionController::class, 'index'])->name('subscriptions.index');
+
+Route::get('/subscription-plans', [SubscriptionPlanController::class, 'index'])->name('subscription-plans.index');
+Route::get('/subscription-plans/create', [SubscriptionPlanController::class, 'create'])->name('subscription-plans.create');
+Route::post('/subscription-plans/store', [SubscriptionPlanController::class, 'store'])->name('subscription-plans.store');
 
 
 Route::middleware('auth')->group(function () {

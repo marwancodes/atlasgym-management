@@ -65,9 +65,10 @@
             </div>
         </div>
 
-        <div class="overflow-x-auto border shadow-md border-neutral-700 bg-neutral-800 rounded-xl">
+        <div class="overflow-x-auto bg-gray-900/80 backdrop-blur
+                    border border-gray-700 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
             <table class="w-full text-sm text-left text-gray-700">
-                <thead class="text-gray-400 border-b bg-neutral-900">
+                <thead class="text-gray-400 border-b bg-gray-950">
                     <tr>
                         <th class="px-6 py-3 font-semibold">Member</th>
                         <th class="px-6 py-3 font-semibold">Contact</th>
